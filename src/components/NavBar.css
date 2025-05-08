@@ -1,0 +1,132 @@
+.navbar {
+  width: 100%;
+  padding-top: 1.7rem;
+  padding-left: 6rem;
+  padding-right: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.left{
+  display: inline-flex;
+}
+
+.logo-placeholder {
+  margin-top: 2px;
+  background-color: white;
+  padding: 0.75rem;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 20px;
+  min-width: 3rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  padding: 0.7rem 0.4rem;
+  background-color: rgba(255, 255, 255, 0.123);
+  border-radius: 10px;
+}
+
+
+.nav-link {
+  color: white;
+  font-size: larger;
+  font-family: 'Red Hat Display', sans-serif;
+  transition: all 0.5s ease;
+  background-color: transparent;
+  margin-bottom: 2px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 200px;
+}
+
+.login-link {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: larger;
+  color: white;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.login-link:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.consultation-button {
+  font-size: larger;
+  line-height: 1.2;
+  vertical-align: bottom;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 700;
+  background-color: transparent;
+  color: white;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  padding: 0.9rem 1.25rem;
+  text-decoration: none;
+  display: inline-flex;
+  transition: all 0.5s ease;
+}
+.consultation-button:hover {
+  background-color: white;
+  color: rgb(30, 58, 138); 
+
+}
+
+.consultation-button:hover .arrow-circle {
+  background-color: rgb(30, 58, 138);
+  border-color: white;
+}
+
+#arrow-right {
+  vertical-align: middle;
+  font-size: larger;
+  margin-left: 10px;
+  line-height: 1;
+}
+
+.consultation-button:hover{
+  border-color: white;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-links {
+    margin: 1rem 0;
+  }
+  
+  .auth-container {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+}
