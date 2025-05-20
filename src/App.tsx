@@ -11,7 +11,7 @@ import HomePage from "./pages/HomePage.tsx";
 import FeaturesPage from "./pages/FeaturesPage.tsx";
 import PricingPage from "./pages/PricingPage.tsx";
 import BlogPage from "./pages/BlogPage.tsx";
-import FaqPage from "./pages/FaqPage.tsx";
+import GalleryPage from "./pages/GalleryPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import SignupPage from "./pages/SignupPage.tsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.tsx";
@@ -19,19 +19,23 @@ import ConfirmEmailPage from "./pages/ConfirmEmailPage.tsx";
 import DashboardPage from "./pages/DashboardPage.tsx";
 import CallbackPage from "./pages/CallbackPage.tsx";
 import { ProtectedRoute } from "./components/ProtectedRoute.tsx";
+import ProfilePage from "./pages/ProfilePage.tsx";
+import BackButton from "./components/BackButton.tsx";
 
 function AppLayout() {
   const location = useLocation();
-  const isLoginPage = location.pathname === "/login";
-  const isSignupPage = location.pathname === "/signup";
-  const isForgotPasswordPage = location.pathname === "/forgot";
-  const isForgotConfirmPage = location.pathname === "/confirm";
-  const hideNavBar =
-    isLoginPage || isSignupPage || isForgotPasswordPage || isForgotConfirmPage;
+  const pathsWithoutNavBar = [
+    "/login",
+    "/signup",
+    "/forgot",
+    "/confirm",
+    "/profile",
+  ];
+  const hideNavBar = pathsWithoutNavBar.includes(location.pathname);
 
   return (
     <>
-      {!hideNavBar && <NavBar />}
+      {hideNavBar ? <BackButton /> : <NavBar />}
       <main className={hideNavBar ? "content-full" : "content"}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -43,10 +47,18 @@ function AppLayout() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          ></Route>
           <Route path="/features" element={<FeaturesPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />}></Route>
           <Route path="/forgot" element={<ForgotPasswordPage />}></Route>

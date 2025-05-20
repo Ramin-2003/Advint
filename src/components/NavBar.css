@@ -1,12 +1,14 @@
 .navbar {
   width: 100%;
-  padding-top: 1.7rem;
+  padding-top: 1.6rem;
   padding-left: 6rem;
   padding-right: 5rem;
+  padding-bottom: 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
+  background-color: rgb(20, 25, 31, 0);
+  transition: background-color 0.05s linear;
   position: fixed;
   top: 0;
   left: 0;
@@ -38,21 +40,21 @@
 
 
 .nav-link {
-  color: white;
+  color: #D6CCBA;
   font-size: larger;
   font-family: 'Red Hat Display', sans-serif;
   transition: all 0.5s ease;
   background-color: transparent;
   margin-bottom: 2px;
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .nav-link:hover {
-  color: white;
+  color: #D6CCBA;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -66,9 +68,16 @@
 .login-link {
   font-family: 'Red Hat Display', sans-serif;
   font-size: larger;
-  color: white;
+  color: #D6CCBA;
   text-decoration: none;
   margin-right: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.profile {
+  font-size: 1.8rem;
+  margin-right: 2.5rem;
+  color: #D6CCBA;
   transition: color 0.2s ease;
 }
 
@@ -83,8 +92,8 @@
   font-family: 'Red Hat Display', sans-serif;
   font-weight: 700;
   background-color: transparent;
-  color: white;
-  border: 1.5px solid white;
+  color: #D6CCBA;
+  border: 1.5px solid #D6CCBA;
   border-radius: 10px;
   padding: 0.9rem 1.25rem;
   text-decoration: none;
@@ -92,14 +101,22 @@
   transition: all 0.5s ease;
 }
 .consultation-button:hover {
-  background-color: white;
-  color: rgb(30, 58, 138); 
+  background-color: #D6CCBA;
+  color: #4a6cf7; 
 
 }
 
+.nav-icon {
+  margin-bottom: -23px;
+  margin-right: 20px;
+  width: 150px;
+  height: auto;
+  fill: #4a6cf7;
+}
+
 .consultation-button:hover .arrow-circle {
-  background-color: rgb(30, 58, 138);
-  border-color: white;
+  background-color: #4a6cf7;
+  border-color: #D6CCBA;
 }
 
 #arrow-right {
@@ -110,7 +127,7 @@
 }
 
 .consultation-button:hover{
-  border-color: white;
+  border-color: #D6CCBA;
 }
 
 /* Media query for responsive design */

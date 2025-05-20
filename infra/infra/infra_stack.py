@@ -20,7 +20,7 @@ class InfraStack(Stack):
 
             user_verification=cognito.UserVerificationConfig(
             email_subject="SynapSocial Verification",
-            email_body="Hello! Thanks for signing up. Your verification code is {####}",
+            email_body="Your verification code is {####}",
             email_style=cognito.VerificationEmailStyle.CODE
             ),
             
@@ -60,7 +60,7 @@ class InfraStack(Stack):
                 flows=cognito.OAuthFlows(authorization_code_grant=True),
                 scopes=[cognito.OAuthScope.OPENID, cognito.OAuthScope.EMAIL, cognito.OAuthScope.PROFILE],
                 callback_urls=["http://localhost:5173/callback"],
-                logout_urls=["http://localhost:5173/logout"]
+                logout_urls=["http://localhost:5173/"]
             ),
             auth_flows=cognito.AuthFlow(
                 user_password=True

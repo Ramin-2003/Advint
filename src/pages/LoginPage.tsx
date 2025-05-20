@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/useAuth";
 import { loginWithGoogle } from "../utils/cognito";
-import "./LoginPage.css";
+import "./AuthFlow.css";
 
 function LoginPage() {
   const { login } = useAuth();
@@ -39,40 +39,39 @@ function LoginPage() {
 
   return (
     <>
-      <a href="/">
-        <i className="bi bi-arrow-left-circle" id="back-arrow"></i>
-      </a>
-      <div className="login-page">
-        <div className="login-container">
-          <h1>Login to Your Account</h1>
-          <form className="login-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
+      <div className="page">
+        <div className="container">
+          <h1>Log in to Your Account</h1>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="form-group floating-label">
               <input
                 type="email"
                 id="email"
                 name="email"
+                placeholder=" "
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <label htmlFor="email">Email</label>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
+            <div className="form-group floating-label">
               <input
                 type="password"
                 id="password"
                 name="password"
+                placeholder=" "
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <label htmlFor="password">Password</label>
             </div>
 
             {message && <div className="error-message">{message}</div>}
 
-            <button type="submit" className="login-button">
+            <button type="submit" className="submit-button">
               Log In
             </button>
 
@@ -85,7 +84,7 @@ function LoginPage() {
             </button>
           </form>
 
-          <div className="login-options">
+          <div className="options">
             <a href="/forgot">Forgot password?</a>
             <a href="/signup">Create an account</a>
           </div>

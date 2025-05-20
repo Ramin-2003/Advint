@@ -223,7 +223,11 @@ export function logout() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
 
-  const logoutUri = "http://localhost:5173/logout";
+  // Clean temp values incase
+  localStorage.removeItem("signup_email");
+  localStorage.removeItem("signup_password");
+
+  const logoutUri = "http://localhost:5173/";
   const url = `https://${DOMAIN}/logout?client_id=${CLIENT_ID}&logout_uri=${encodeURIComponent(logoutUri)}`;
   window.location.href = url;
 }

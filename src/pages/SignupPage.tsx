@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/useAuth";
 import { loginWithGoogle } from "../utils/cognito";
-import "./SignupPage.css";
-import BackButton from "../components/BackButton";
+import "./AuthFlow.css";
 
 function SignupPage() {
   const { signup } = useAuth();
@@ -48,51 +47,53 @@ function SignupPage() {
 
   return (
     <>
-      <BackButton />
-      <div className="signup-page">
-        <div className="signup-container">
-          <h1>Create Your Account</h1>
-          <form className="signup-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
+      <div className="page">
+        <div className="container">
+          <h1>Sign up for SynapSocial</h1>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="form-group floating-label">
               <input
                 type="email"
                 id="email"
                 name="email"
+                placeholder=" "
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <label htmlFor="email">Email</label>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
+            <div className="form-group floating-label">
               <input
                 type="password"
                 id="password"
                 name="password"
+                placeholder=" "
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <label htmlFor="password">Password</label>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="confirm">Confirm Password</label>
+            <div className="form-group floating-label">
               <input
                 type="password"
                 id="confirm"
                 name="confirm"
+                placeholder=" "
                 required
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
               />
+              <label htmlFor="confirm">Confirm Password</label>
             </div>
 
             {message && <div className="error-message">{message}</div>}
 
-            <button type="submit" className="signup-button">
-              Create
+            <button type="submit" className="submit-button">
+              Sign up
             </button>
 
             <button
@@ -104,7 +105,7 @@ function SignupPage() {
             </button>
           </form>
 
-          <div className="signup-options">
+          <div className="options">
             <a href="/forgot">Forgot password?</a>
             <a href="/login">Login</a>
           </div>

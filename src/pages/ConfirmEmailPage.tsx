@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useAuth } from "../utils/useAuth";
 import { useNavigate } from "react-router-dom";
-import "./ConfirmEmailPage.css";
+import "./AuthFlow.css";
 
 function ConfirmEmailPage() {
   const { confirmSignup, resendConfirmation, login } = useAuth();
@@ -61,28 +61,26 @@ function ConfirmEmailPage() {
 
   return (
     <>
-      <a href="/">
-        <i className="bi bi-arrow-left-circle" id="back-arrow"></i>
-      </a>
-      <div className="confirmation-page">
-        <div className="confirmation-container">
+      <div className="page">
+        <div className="container">
           <h1>Enter confirmation code sent to your {email}</h1>
-          <form className="confirmation-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="code">Code</label>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="form-group floating-label">
               <input
                 type="text"
                 id="code"
                 name="code"
+                placeholder=" "
                 required
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
               />
+              <label htmlFor="code">Code</label>
             </div>
 
             {message && <div className="error-message">{message}</div>}
 
-            <button type="submit" className="confirm-button">
+            <button type="submit" className="submit-button">
               Confirm
             </button>
             <button type="button" className="resend" onClick={handleResend}>

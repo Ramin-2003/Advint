@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./BackButton.css";
 
 function BackButton() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function BackButton() {
 
   return (
     <button onClick={handleBack} className="back-button" aria-label="Go back">
-      <i className="bi bi-arrow-left-circle" id="back-arrow"></i>
+      <i className="bi bi-arrow-left-circle-fill" id="back-arrow"></i>
     </button>
   );
 }
